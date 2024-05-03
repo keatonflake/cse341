@@ -1,3 +1,7 @@
+# Local Get 
 GET http://localhost:8080/contact/
 GET http://localhost:8080/contact/6633cdd175e28dc085498ca0
-# the request above returns a json object with all professional data for Nathan Birch. No database is connected.
+
+# Render GET
+https://cse341-15dr.onrender.com/contact
+https://cse341-15dr.onrender.com/contact/6633cdd175e28dc085498ca0
