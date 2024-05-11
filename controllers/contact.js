@@ -19,7 +19,59 @@ const getContactById = async (req, res) => {
     }
 };
 
-module.exports = {
+const createContact = async (req, res) => {
+    const contact = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday
+    };
+    const result = await mongodb.getDb().db().collection('contact').insertOne(contact);
+    if (result) {
+        res.status(201).json(result);
+    } else {
+        res.status(500).json({ message: 'Error creating contact' });
+    }
+}
+
+const updateContact = async (req, res) => {
+    const userId = new ObjectId(req.params.id);
+    const contact = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      favoriteColor: req.body.favoriteColor,
+      birthday: req.body.birthday
+    };
+    const response = await mongodb
+      .getDb()
+      .db()
+      .collection('contact')
+      .replaceOne({ _id: userId }, contact);
+    console.log(response);
+    if (response.modifiedCount > 0) {
+      res.status(204).send();
+    } else {
+      res.status(500).json(response.error || 'error updating contact.');
+    }
+  };
+  
+  const deleteContact = async (req, res) => {
+    const userId = new ObjectId(req.params.id);
+    const response = await mongodb.getDb().db().collection('contact').deleteOne({ _id: userId }, true);
+    console.log(response);
+    if (response.deletedCount > 0) {
+      res.status(204).send();
+    } else {
+      res.status(500).json(response.error || 'error, failed to delete the contact.');
+    }
+  };
+  
+  module.exports = {
     getAllContacts,
-    getContactById
-};
+    getContactById,
+    createContact,
+    updateContact,
+    deleteContact
+  };
