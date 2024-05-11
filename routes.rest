@@ -1,8 +1,10 @@
 # ______________Local Tests____________________
 ### Get All Contacts 
 GET http://localhost:8080/contact/
+
 ### Get Contact By Id 
 GET http://localhost:8080/contact/6633cdd175e28dc085498ca0
+
 ### Create contact 
 POST http://localhost:8080/contact
 Content-Type: application/json
@@ -13,6 +15,7 @@ Content-Type: application/json
   "favoriteColor": "Pink", 
   "birthday": "1984-04-15"
 }
+
 ### Update contact 
 PUT http://localhost:8080/contact/663feb8d98873e44487a062c
 Content-Type: application/json
@@ -23,16 +26,19 @@ Content-Type: application/json
 "favoriteColor": "Green",
 "birthday": "2000-11-10"
 }
+
 ### Delete contact
 DELETE http://localhost:8080/contact/6633cdd175e28dc085498ca0
 
 # ___________________Test On Render_____________________
+
 ### Get All Contacts from Render 
 GET https://cse341-15dr.onrender.com/contact
 
 ### Get Contact By Id from Render 
 GET https://cse341-15dr.onrender.com/contact/6633cdd175e28dc085498ca0
 
+### Post new Contact
 POST https://cse341-15dr.onrender.com/contact
 Content-Type: application/json
 
@@ -44,15 +50,17 @@ Content-Type: application/json
   "birthday": "1984-04-15"
 }
 
-PUT https://cse341-15dr.onrender.com/contact/6633cdb975e28dc085498c9e
+### Modify or put new data in contact
+PUT https://cse341-15dr.onrender.com/contact/663ff524a79c5c01ed9f63b3
 Content-Type: application/json
+
 {
-"firstName": "Joey",
-"lastName": "Flake",
-"email": "lake@example.com",
-"favoriteColor": "Green",
-"birthday": "2000-11-10"
+  "firstName": "Joey",
+  "lastName": "Flake",
+  "email": "lake@example.com",
+  "favoriteColor": "Green",
+  "birthday": "2000-11-10"
 }
 
-DELETE https://cse341-15dr.onrender.com/contact/6633cdb975e28dc085498c9e
-
+### Delete contact by id
+DELETE https://cse341-15dr.onrender.com/contact/663ff524a79c5c01ed9f63b3
