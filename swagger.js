@@ -6,7 +6,7 @@ const doc = {
     description: 'API for my project delivers contacts stored in MongoDB',
   },
   host: 'cse341-15dr.onrender.com',
-  schemes: ['http'],
+  schemes: ['https'],
 };
 
 const outputFile = './swagger.json';
