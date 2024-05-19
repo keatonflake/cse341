@@ -5,7 +5,7 @@ const doc = {
     title: 'My API',
     description: 'API for my project delivers contacts stored in MongoDB',
   },
-  host: 'localhost:8080',
+  host: 'https://cse341-15dr.onrender.com/',
   schemes: ['http'],
 };
 
